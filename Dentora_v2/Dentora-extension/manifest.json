@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Dentora Assistant",
+  "version": "1.0",
+  "description": "Asistente de voz para odontograma",
+
+  "permissions": ["microphone", "activeTab", "scripting"],
+
+  "host_permissions": [
+    "http://localhost:9090/*",
+    "http://odontocos.com.ar/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ]
+}
